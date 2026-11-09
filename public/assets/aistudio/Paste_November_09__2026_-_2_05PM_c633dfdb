@@ -1,0 +1,1466 @@
+# MIRASOL STUDIO — FUTURISTIC SCI-FI HUD PORTFOLIO
+## Complete Master Design & Development Prompt
+
+### PROJECT OBJECTIVE
+
+Build a premium, cinematic, futuristic portfolio website for a fictional design-engineer identity called **MIRASOL.STUDIO**.
+
+The website must combine:
+
+1. Premium editorial portfolio design.
+2. Futuristic sci-fi Heads-Up Display (HUD) interface design.
+3. Cinematic WebGL and Three.js environments.
+4. Refractive glass 3D typography.
+5. Interactive holographic elements.
+6. Pointer-reactive fluid distortion.
+7. Scroll-driven digital particle transitions.
+8. Minimal but sophisticated information architecture.
+
+The visual direction should feel like a futuristic digital identity system, an advanced holographic interface, and an experimental creative-engineering portfolio.
+
+It should not look like a conventional website template, a gaming dashboard, a generic cyberpunk interface, or a collection of glowing cards.
+
+**Core design philosophy:**
+
+- 70% premium cinematic editorial design.
+- 30% futuristic sci-fi HUD interface.
+
+The HUD elements must enhance the original composition rather than dominate it.
+
+The final result should feel like an interface from a sophisticated science-fiction film, designed by an award-winning digital design studio.
+
+---
+
+# 1. DESIGN IDENTITY AND VISUAL DIRECTION
+
+### 1.1 Overall aesthetic
+
+The entire website uses a deep-space teal environment with luminous aqua, seafoam, and cyan highlights.
+
+Visual references:
+
+- High-end sci-fi film interfaces.
+- Futuristic holographic control systems.
+- Minimal aerospace instrumentation.
+- Advanced digital laboratory interfaces.
+- Cinematic holographic projections.
+- Premium motion-design portfolios.
+- Refractive glass and translucent optical materials.
+
+The interface must be elegant, restrained, atmospheric, and technically sophisticated.
+
+### 1.2 Colour system
+
+Use these colours consistently throughout the website.
+
+| Colour | Hex | Application |
+|---|---|---|
+| Deep space black | `#061416` | Darkest interface areas |
+| Page background | `#091618` | Main background |
+| Deep teal | `#06252c` | Background atmosphere |
+| Secondary teal | `#0f4a48` | Ambient lighting |
+| HUD teal | `#0f6b66` | Interface graphics |
+| Seafoam | `#5fe0c4` | Active HUD elements |
+| Neon aqua | `#7aeed6` | Glowing accents |
+| Pale aqua | `#dffff8` | Highlights |
+| Primary white | `#ffffff` | Main typography |
+| Secondary grey | `#87999a` | Supporting typography |
+
+Avoid excessive saturated blue, purple, pink, and red.
+
+The primary visual identity is teal, aqua, and black.
+
+### 1.3 HUD graphic language
+
+Use a consistent collection of technical graphic elements:
+
+- Fine 1 px interface borders.
+- Corner brackets.
+- Small circular tracking markers.
+- Crosshair targeting symbols.
+- Coordinate readouts.
+- Micro typography.
+- Segmented progress bars.
+- Thin concentric circles.
+- Circular radar indicators.
+- Rotating wireframe rings.
+- Small numeric labels.
+- Technical registration marks.
+- Minimal animated scanning lines.
+- Tiny illuminated status indicators.
+
+Use opacity between approximately 0.15 and 0.7 depending on the importance of each element.
+
+The interface should have plenty of negative space.
+
+**Important:** Never put a large rectangular HUD panel around every piece of content. Use floating technical elements, isolated labels, small outlined containers, and open-corner frames.
+
+---
+
+# 2. TECHNICAL REQUIREMENTS
+
+### 2.1 Project structure
+
+Build the entire website as:
+
+`index.html`
+
+Requirements:
+
+- Single self-contained HTML file.
+- No build step.
+- No React, Vue, or other framework.
+- HTML, CSS, and JavaScript in one file.
+- Three.js through CDN ES modules.
+- Lenis through CDN.
+- Fonts embedded as Base64 WOFF2 data URIs.
+- No unnecessary image assets.
+- Generate all 3D objects programmatically.
+- Use the supplied portrait image URL directly.
+
+The result must be a working website, not a static visual mockup.
+
+### 2.2 Libraries
+
+Use these exact versions:
+
+**Three.js 0.170.0**
+
+`https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js`
+
+Import map:
+
+- `three` → Three.js module.
+- `three/addons/` → `https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/`
+
+Only use `BufferGeometryUtils.js` for `mergeGeometries` from the addons directory.
+
+**Lenis 1.1.13**
+
+`https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js`
+
+Use Lenis with:
+
+- `lerp: 0.1`
+- `smoothWheel: true`
+
+Drive it using `requestAnimationFrame`.
+
+Disable Lenis when reduced motion is enabled.
+
+### 2.3 Fonts
+
+Embed these four fonts as Base64 WOFF2 data URIs.
+
+| Font | URL | Usage |
+|---|---|---|
+| Archivo Wide | `https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XA35FckqWY8Q-2trydOxI.woff2` | Wordmark and large headlines |
+| Inter | `https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiA.woff2` | Body and editorial text |
+| JetBrains Mono | `https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2` | HUD labels, coordinates and technical data |
+| Ms Madi | `https://fonts.gstatic.com/s/msmadi/v2/HTxsL2UxNnOji5E1B-fFiQ.woff2` | Handwritten Mira signature |
+
+Font settings:
+
+- Archivo Wide: weight 100–900, stretch 62%–125%.
+- Inter: weight 100–900.
+- JetBrains Mono: weight 100–800.
+- Ms Madi: weight 400.
+
+Font stacks:
+
+- Sans: `"Inter", system-ui, sans-serif`
+- Wide: `"Archivo Wide", "Archivo", system-ui, sans-serif`
+- Mono: `"JetBrains Mono", ui-monospace, monospace`
+
+### 2.4 Portrait image
+
+Use this exact image asset for the About section:
+
+`https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261106_072427_1c6c0843-2189-4e71-8462-58232b961bde.png&w=900&q=85`
+
+Do not replace it with a generated portrait or another image.
+
+No additional image assets are required.
+
+---
+
+# 3. GLOBAL PAGE STRUCTURE
+
+The website consists of two full-screen sections:
+
+1. Hero / Introduction.
+2. About / Identity.
+
+A single fixed WebGL canvas sits behind both sections.
+
+All typography and interface graphics must remain real HTML/CSS/SVG elements layered above the WebGL canvas.
+
+### Stacking order
+
+1. Fixed WebGL canvas: z-index 0.
+2. Main page content: z-index 1.
+3. Fixed HUD navigation: z-index 20.
+4. Fixed HUD footer: z-index 20.
+5. Interactive overlay indicators: z-index 21 where required.
+
+The WebGL canvas must:
+
+- Cover the complete viewport.
+- Remain fixed during scrolling.
+- Use `pointer-events: none`.
+- Fade in over one second when the scene is ready.
+
+Page background:
+
+`#091618`
+
+Apply:
+
+- `box-sizing: border-box`
+- `margin: 0`
+- `padding: 0`
+- Antialiased font rendering.
+- Hidden horizontal overflow.
+
+Use the original responsive design coordinate system:
+
+- `--ux = 100vw / 1440`
+- `--u = min(100vw / 1440, 100vh / 900)`
+
+The desktop design reference is 1440 × 900.
+
+Preserve the original section dimensions, element positions, typography sizes, and spacing wherever possible.
+
+---
+
+# 4. FIXED FUTURISTIC HUD NAVIGATION
+
+Transform the original navigation into a sophisticated futuristic interface header.
+
+The navigation must remain fixed at the top of the viewport across both sections.
+
+### 4.1 Main navigation
+
+Left side:
+
+`MIRASOL.STUDIO`
+
+Use Archivo Wide, weight 800, white.
+
+Keep the original left positioning and spacing.
+
+Add a small illuminated aqua indicator before or beside the wordmark.
+
+Below the wordmark, add a very small technical subtitle:
+
+`INDEPENDENT DESIGN ENGINEERING`
+
+Use JetBrains Mono, low opacity.
+
+Right side:
+
+- WORK
+- CONTACT
+- THEME[A]
+- SOUND[-]
+
+Maintain the original link functionality.
+
+Use JetBrains Mono.
+
+The hover underline remains the original animated 1 px line, but its colour changes to seafoam.
+
+### 4.2 HUD navigation details
+
+Introduce a subtle technical framing system:
+
+- Short horizontal line extending from the wordmark.
+- Small corner registration marks.
+- Tiny illuminated circular status indicator.
+- Very subtle horizontal scanning line that passes through the header occasionally.
+- Small section identification text near the navigation.
+
+Example:
+
+`MIRASOL / DIGITAL ENVIRONMENT`
+
+The additional elements must remain subtle and must not increase the navigation height significantly.
+
+### 4.3 System indicator
+
+At the far right or immediately before the navigation links, add:
+
+`● SYSTEM ONLINE`
+
+Use:
+
+- JetBrains Mono.
+- 9–11 px desktop size.
+- Seafoam indicator.
+- A gentle opacity pulse every few seconds.
+
+Do not use a large status card.
+
+### 4.4 Theme button
+
+Keep the existing THEME[A] / THEME[B] toggle.
+
+On B:
+
+`filter: hue-rotate(-28deg) saturate(1.1)`
+
+On A, restore the original appearance.
+
+The button text must update correctly.
+
+### 4.5 Sound button
+
+Keep SOUND[-] / SOUND[+] as a cosmetic toggle.
+
+Do not add audio.
+
+---
+
+# 5. HERO SECTION — CINEMATIC HOLOGRAPHIC INTRODUCTION
+
+The hero remains a full-screen cinematic composition.
+
+Its main visual focus is the enormous 3D refractive glass word:
+
+`hello`
+
+Do not replace this with ordinary HTML typography.
+
+Do not reduce the size of the glass object to make room for HUD graphics.
+
+The glass word is the primary visual subject.
+
+### 5.1 Background atmosphere
+
+Preserve the original WebGL teal shattered-streak background.
+
+The scene must contain:
+
+- Deep teal edges.
+- Luminous aqua central region.
+- Diagonal refractive light streaks.
+- Subtle animated distortion.
+- Pointer-reactive swirling.
+- Atmospheric vignette.
+- Soft bokeh highlights.
+- Dark cinematic contrast.
+
+Add an extremely subtle holographic interface atmosphere above the background:
+
+- Faint circular targeting graphics.
+- Small floating coordinate labels.
+- Fine crosshair marks.
+- Small geometric tracking symbols.
+- Sparse illuminated points.
+
+These graphics should appear integrated into the scene rather than looking like a separate dashboard.
+
+### 5.2 Main glass typography
+
+Use the original 3D glass `hello` geometry and shader system.
+
+Specifications:
+
+- Continuous monoline cursive stroke.
+- Centripetal Catmull-Rom curve.
+- Tube radius 0.4.
+- 1400 curve segments.
+- 28 radial segments.
+- Sphere caps.
+- Vertical scale 0.86.
+- Desktop width approximately 15.3 world units.
+- Position approximately (-0.1, 0.7, 2).
+- Mobile position (0, 0.4, 2).
+
+Glass tint:
+
+- Top: `#effffb`
+- Bottom: `#9fe8d8`
+
+Preserve the original RGB refraction, fresnel, specular, tint and environment-capture shader behaviour.
+
+The glass must look physically refractive, glossy, thick and transparent.
+
+It should not look like ordinary white 3D text.
+
+### 5.3 HUD typography surrounding the glass
+
+Add small technical labels around the glass word.
+
+Examples:
+
+Upper-left:
+
+`OBJECT_001`
+`REFRACTIVE TYPOGRAPHY`
+
+Upper-right:
+
+`OPTICAL SYSTEM`
+`IOR 1.15 / 1.18 / 1.22`
+
+Lower-left:
+
+`RENDER ENGINE`
+`REALTIME / WEBGL`
+
+Lower-right:
+
+`INTERACTION`
+`POINTER TRACKING ACTIVE`
+
+Use JetBrains Mono.
+
+Text size should be approximately 9–11 px at the 1440 × 900 reference size.
+
+Use opacity between 0.35 and 0.65.
+
+Add thin connecting lines and small circular endpoints where appropriate.
+
+Do not let these labels overlap the main `hello` word.
+
+### 5.4 Object tracking markers
+
+Add small targeting markers around the floating 3D objects.
+
+Each marker should include:
+
+- A fine circular outline.
+- One small crosshair.
+- A tiny object identifier.
+- A short technical label.
+
+Examples:
+
+`OBJ_02`
+`SPARK`
+
+`OBJ_03`
+`OPTICAL FORM`
+
+`OBJ_04`
+`PEARL`
+
+`OBJ_05`
+`CURSOR`
+
+These markers should track the projected screen positions of the actual Three.js objects.
+
+They must move with the corresponding objects rather than remain at unrelated fixed screen coordinates.
+
+Their movement should be smooth and subtle.
+
+### 5.5 Floating objects
+
+Preserve all original 3D objects:
+
+1. Four-point sparkle.
+2. Glass pill.
+3. Glass pearl.
+4. Glass cursor arrow.
+
+Keep their original geometry, positions, tint pairs, scales and rotation behaviour.
+
+Add only subtle HUD tracking graphics around them.
+
+Do not introduce additional large 3D objects.
+
+---
+
+# 6. HERO TEXT AND EDITORIAL TYPOGRAPHY
+
+Preserve the original text content.
+
+### Upper-left lede
+
+`Motion &`
+`Engineering`
+
+Position:
+
+- Left 63 `--ux`.
+- Top 68 `--u`.
+
+Typography:
+
+- Inter 400.
+- 30 `--u`.
+- Line height 37 `--u`.
+
+### First mono column
+
+`Building with rigor.`
+`Sweating the pixels.`
+
+Position:
+
+- Left 505 `--ux`.
+- Top 70 `--u`.
+
+### Second mono column
+
+`I’m Mira Sol, I lead Design & Engineering`
+`and AI exploration at Mirasol Studio,`
+`across craft & code. Off-hours I build`
+`design tools for team efficiency.`
+
+Position:
+
+- Left 957 `--ux`.
+- Top 70 `--u`.
+
+### Main headline
+
+Keep the original headline:
+
+`I bring`
+`Skill & heart`
+`to every screen`
+
+Position:
+
+- Left 60 `--ux`.
+- Bottom 126 `--u`.
+
+Use Archivo Wide 800, stretch 112%, uppercase visual presentation.
+
+Font size 77 `--u`.
+
+Line height 78 `--u`.
+
+Maintain the original masked line-by-line entrance animation.
+
+### HUD addition
+
+Add a very small label above the headline:
+
+`CREATIVE ENGINEERING / 001`
+
+Add a tiny animated line beneath the final headline line.
+
+Do not change the headline's original size or visual dominance.
+
+---
+
+# 7. ADDITIONAL HERO HUD SYSTEMS
+
+### 7.1 Left-side vertical telemetry
+
+Place a narrow technical readout close to the left screen edge.
+
+Example:
+
+`01 / VISUAL SYSTEM`
+`02 / INTERACTION`
+`03 / CREATIVE CODE`
+
+Include a small vertical progress line.
+
+The active state changes according to scroll progress.
+
+Keep it low-opacity and unobtrusive.
+
+### 7.2 Right-side circular radar
+
+Introduce a small circular radar-style interface.
+
+Design:
+
+- Two thin concentric circles.
+- One rotating radial line.
+- Four small radial markers.
+- Tiny centre dot.
+- Small label `SCAN / 001`.
+
+The radar should rotate slowly, approximately one revolution every 12 seconds.
+
+Use SVG or CSS.
+
+Do not use a large opaque panel.
+
+### 7.3 Scanning effect
+
+Add a very subtle scanning line that moves vertically through the hero.
+
+- Thin aqua line.
+- Soft blurred glow.
+- Low opacity.
+- Approximately 8-second loop.
+- No aggressive flashing.
+
+The scanning line must sit behind the text and HUD graphics but above the background.
+
+### 7.4 Technical frame corners
+
+Introduce small corner brackets at selected viewport corners.
+
+Use:
+
+- 20–35 px line lengths.
+- 1 px borders.
+- Seafoam at low opacity.
+- Small animated opacity variations.
+
+These should frame the visual composition without creating a complete box around the page.
+
+### 7.5 Hero metadata
+
+At the bottom edge of the hero, above the footer, add:
+
+`VISUAL IDENTITY / DIGITAL EXPERIMENT`
+
+and:
+
+`SCROLL TO EXPLORE`
+
+Use small JetBrains Mono text.
+
+The scroll label may have a tiny downward arrow that gently moves up and down.
+
+---
+
+# 8. ORIGINAL WEBGL BACKGROUND — PRESERVE THE SHATTERED STREAK SYSTEM
+
+Do not simplify or replace the original WebGL environment.
+
+Use five full-screen shader passes with two ping-pong render targets.
+
+Render at 0.3× viewport resolution for the background stack.
+
+The passes must execute in this order:
+
+1. Vignette.
+2. Swirl.
+3. Sine warp.
+4. Voronoi shatter.
+5. Bokeh blur.
+
+### 8.1 Vignette
+
+Use the original:
+
+- Skew: (0.54, 0.46).
+- Half-radius: 0.354 / 2.
+- Edge intensity: -0.82.
+- Background colour: `#86ead6`.
+- Vignette colour: `#06252c`.
+
+### 8.2 Swirl
+
+- Radius 0.25.
+- Angle 0.1.
+- Mix 0.5.
+- Time-based rotation.
+- Pointer-reactive centre.
+
+### 8.3 Sine distortion
+
+- Frequency 0.35.
+- Amplitude 1.18.
+- Phase based on pointer position and time.
+
+### 8.4 Shatter
+
+Use Voronoi geometry.
+
+- Amount 1.
+- Spread 0.9.
+- Angle -45 degrees.
+- Skew 0.9.
+- Centre (0.5, 0.5).
+- 16 cells in the aspect-corrected field.
+
+Maintain long diagonal cells and glowing streak-like forms.
+
+### 8.5 Bokeh
+
+- Amount: 3.125 × 0.754.
+- Tilt: 0.5.
+- 32 golden-angle samples.
+- Step: 2.39996.
+- Per-pixel noise rotation.
+- Highlight weighting: `5 + c⁹ × 150`.
+
+### 8.6 Final composition
+
+Preserve the original teal compositing formula.
+
+The background must feel like a living optical environment rather than a flat gradient.
+
+The HUD elements must not interfere with the shader rendering or the glass environment capture.
+
+---
+
+# 9. GLASS MATERIAL AND LIGHTING
+
+Preserve the original glass shader.
+
+Requirements:
+
+- Half-resolution environment capture.
+- Half-float render target.
+- Depth enabled.
+- Glass meshes on layer 10.
+- Background and non-glass geometry on layer 0.
+
+Refraction:
+
+- Red IOR 1.15.
+- Green IOR 1.18.
+- Blue IOR 1.22.
+- Three samples per channel on desktop.
+- Two samples on phones.
+
+Tone:
+
+- Saturation 1.2.
+- Brightness 0.6.
+- Contrast 0.98.
+- Gamma 1.
+
+Specular:
+
+- Blinn half-vector.
+- Shininess 100.
+- Diffuse contribution 0.05.
+- Total lighting multiplier 1.2.
+
+Fresnel:
+
+`(1 - |e·n|)^3 × 0.72`
+
+Preserve the original orbital lighting and pointer-driven light direction.
+
+Do not substitute MeshPhysicalMaterial for the custom glass system.
+
+---
+
+# 10. SCROLL-DRIVEN DIGITAL DISINTEGRATION
+
+This is one of the most important transitions.
+
+Preserve the original full-screen 4 CSS-pixel dot-dissolve.
+
+As the visitor scrolls from the hero into the About section:
+
+1. The glass typography begins to dissolve into dots.
+2. The teal background darkens.
+3. The glass objects gradually disappear.
+4. The background transforms into a dark teal-black field.
+5. The About content becomes the visual focus.
+
+Dot colour:
+
+`#091618`
+
+Grid:
+
+4 CSS-pixel cells.
+
+Dot radius:
+
+`0.9 × p`
+
+The dissolve must be smooth, cinematic and synchronized to the scroll position.
+
+### Additional HUD transition
+
+During the transition, introduce a restrained digital system-reset effect:
+
+- HUD labels gradually fade.
+- Coordinate numbers briefly change.
+- Small tracking brackets disappear.
+- A tiny status label changes from `INTRO ACTIVE` to `IDENTITY MODULE`.
+- The radar stops or transitions to the About identity state.
+
+Do not add glitches, large flashes or aggressive glitch effects.
+
+The original dot-dissolve remains the dominant transition.
+
+---
+
+# 11. ABOUT SECTION — FUTURISTIC IDENTITY PROFILE
+
+The About section must feel like entering a personal holographic identification interface.
+
+It must remain elegant, readable and editorial.
+
+Do not convert it into a conventional dashboard.
+
+### 11.1 Background
+
+Preserve the dark teal-black field created by the dot-dissolve.
+
+Colour:
+
+`#091618`
+
+Add extremely subtle HUD framing and technical grid lines.
+
+### 11.2 Identity header
+
+Above the main About content, introduce a small system identifier:
+
+`IDENTITY MODULE / 002`
+
+Below it:
+
+`SUBJECT: MIRA SOL`
+
+Status:
+
+`● PROFILE VERIFIED`
+
+Use JetBrains Mono.
+
+The indicator can pulse gently.
+
+### 11.3 Portrait card
+
+Use the exact supplied portrait asset.
+
+Position:
+
+- Left 62 `--ux`.
+- Top 179 `--u`.
+- Width 321 `--u`.
+- Height 323 `--u`.
+
+Image:
+
+`https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261106_072427_1c6c0843-2189-4e71-8462-58232b961bde.png&w=900&q=85`
+
+Keep the original image crop and fallback colour.
+
+### 11.4 Futuristic portrait frame
+
+Surround the portrait with a minimal holographic scanning frame.
+
+Add:
+
+- Four separate corner brackets.
+- Thin outline segments.
+- Tiny coordinate numbers.
+- A small tracking dot.
+- Horizontal scanning line.
+- Small text `BIOMETRIC IMAGE / 001`.
+- A subtle circular tracking marker outside one corner.
+
+The frame should remain open at the corners.
+
+Do not place a thick rectangular border around the image.
+
+### 11.5 Portrait scanning animation
+
+When the About section enters the viewport:
+
+- A fine aqua scanning line travels from top to bottom.
+- The line produces a subtle glow.
+- Small corner brackets illuminate briefly.
+- A circular tracking point gently pulses.
+- The portrait reveals using the original clip-path animation.
+
+Run the scanning effect once when the section first becomes visible.
+
+Avoid continuous aggressive scanning.
+
+### 11.6 Neon signature
+
+Keep the original handwritten signature:
+
+`Mira`
+
+Use Ms Madi.
+
+Colour:
+
+`#7aeed6`
+
+Position:
+
+- Left 34 `--ux`.
+- Top 172 `--u`.
+
+Font size:
+
+112 `--u`.
+
+Rotation:
+
+-17 degrees.
+
+Keep the original neon text-shadow stack.
+
+Preserve the original draw-on animation and subtle flicker.
+
+### 11.7 About statement
+
+Keep the original statement:
+
+`I shape how teams and AI work`
+`together with clarity and care,`
+`crafting the next generation of`
+`digital products.`
+
+Position:
+
+- Left 509 `--ux`.
+- Top 166 `--u`.
+
+Font:
+
+Inter 400.
+
+Size:
+
+55.5 `--u`.
+
+Line height:
+
+61 `--u`.
+
+Colour:
+
+White.
+
+Do not make the typography look like technical microtext.
+
+The editorial typography must remain the primary content.
+
+### 11.8 History
+
+Keep the original history content:
+
+`I’m building Lumen Kit™, and`
+`previously worked on Northwind`
+`Cloud, Fieldnote, and Parcel.`
+
+Position:
+
+- Left 509 `--ux`.
+- Top 453 `--u`.
+
+Colour:
+
+`#87999a`
+
+Preserve the original underline and hover behaviour.
+
+### 11.9 About HUD information
+
+Introduce a small technical information area around the About content.
+
+Possible labels:
+
+`SPECIALIZATION`
+`DESIGN ENGINEERING`
+
+`FOCUS`
+`MOTION / AI / DIGITAL PRODUCTS`
+
+`WORKFLOW`
+`CRAFT + CODE`
+
+`STATUS`
+`EXPLORATION ACTIVE`
+
+Use tiny JetBrains Mono typography.
+
+These labels should occupy existing negative space.
+
+Do not move the statement or history into cards.
+
+---
+
+# 12. ABOUT SECTION MICRO-INTERACTIONS
+
+Add restrained interface interactions:
+
+**Portrait hover:**
+
+- Slightly brighten the scanning frame.
+- Tracking dot becomes more visible.
+- Coordinate label gains opacity.
+
+**History links:**
+
+- Underline contracts toward the right.
+- Text changes to `#b8f4e6`.
+
+**HUD labels:**
+
+- Small opacity increase on hover.
+- No large movement.
+- No distracting transitions.
+
+**Signature:**
+
+- Keep the original flicker effect.
+- Do not add extra animation that competes with the signature.
+
+---
+
+# 13. FOOTER — GLOBAL SYSTEM INFORMATION
+
+Preserve the original fixed footer.
+
+Desktop layout:
+
+Three columns.
+
+Left:
+
+Live UTC offset and local clock.
+
+Format:
+
+`GMT±H  HH:MM`
+
+Centre:
+
+Pointer coordinates.
+
+Format:
+
+`XXXX X YYYY Y`
+
+Initial:
+
+`0720 X 0450 Y`
+
+Right:
+
+Animated globe SVG.
+
+Preserve the original globe dimensions, geometry and 6-second rotation.
+
+### Sci-fi HUD additions
+
+Add subtle labels above or beside the footer elements:
+
+Left:
+
+`LOCAL TIME`
+
+Centre:
+
+`POINTER POSITION`
+
+Right:
+
+`GLOBAL NETWORK`
+
+Use very small uppercase JetBrains Mono.
+
+Do not increase the footer's height substantially.
+
+Add a thin line extending across part of the footer area, with low-opacity seafoam.
+
+---
+
+# 14. SCROLL AND POINTER INTERACTIONS
+
+Preserve the original Lenis smooth scrolling.
+
+Use the original scroll progress calculation:
+
+`p = clamp((vh - heroBottom) / (vh - 0.25 × vh), 0, 1)`
+
+The value drives:
+
+- Dot-dissolve.
+- Camera dolly.
+- Object rotations.
+- Object rise.
+- HUD opacity.
+- Section identification.
+- Active navigation state.
+
+Pointer coordinates must update in the footer.
+
+The background follows the pointer with the original smoothing values.
+
+The glass lighting reacts to pointer position.
+
+The entire frame uses the original pointer-fluid distortion system.
+
+### Additional HUD pointer interaction
+
+Add a small tracking reticle around the pointer.
+
+Requirements:
+
+- Very thin aqua circular outline.
+- Four small corner ticks.
+- Tiny centre dot.
+- Smoothly follows the pointer.
+- Slight scale increase when hovering over interactive links.
+- Fades when the pointer leaves the viewport.
+
+This reticle must not replace the operating-system cursor globally in a way that makes navigation difficult.
+
+The fluid effect must continue to affect the complete rendered scene as originally specified.
+
+---
+
+# 15. POINTER FLUID SYSTEM
+
+Preserve the original stable-fluids post-processing pipeline.
+
+Grid:
+
+160 cells on the short side.
+
+Use half-float textures and linear filtering.
+
+Operations:
+
+1. Curl.
+2. Velocity splat.
+3. Divergence.
+4. Pressure clearing.
+5. Four Jacobi iterations.
+6. Gradient subtraction.
+7. Self-advection.
+
+Use the original splat, dissipation, displacement and channel weighting values.
+
+Display the final image through four displacement taps.
+
+Preserve the teal-biased chromatic distortion.
+
+The fluid must:
+
+- Respond to pointer movement.
+- Bend and stretch the glass typography.
+- Produce subtle aqua and seafoam fringes.
+- Relax naturally after the pointer stops.
+
+Do not introduce a separate mouse-trail distortion that conflicts with the fluid simulation.
+
+---
+
+# 16. PERFORMANCE AND RENDERING
+
+The site must be optimized to run smoothly.
+
+Preserve the original rendering architecture.
+
+### Renderer
+
+- Three.js WebGLRenderer.
+- Antialias enabled.
+- High-performance power preference.
+- Pixel ratio capped at 2.
+- Tone mapping disabled.
+- Clear colour `#091618`.
+
+### Rendering optimizations
+
+- Background stack at 0.3× viewport resolution.
+- Glass environment capture at half resolution.
+- Fluid simulation at 160 cells on the short side.
+- Render only when required.
+- Preserve the original cadence rules.
+- Skip unnecessary rendering when the hero is off screen and the scene is idle.
+
+### Fallback
+
+If WebGL initialization fails:
+
+- Add `no-gl` to the root element.
+- Show a static teal gradient in the hero.
+- Use the solid dark teal About background.
+- Keep all HTML content and navigation working.
+
+Do not allow a WebGL failure to produce a blank website.
+
+---
+
+# 17. MOBILE RESPONSIVE DESIGN
+
+For viewport widths up to 820 px, switch to a dedicated mobile composition.
+
+Do not simply scale the desktop interface down.
+
+Preserve the original mobile dimensions and layout rules.
+
+### Navigation
+
+- Horizontal padding: 18n.
+- Height: 52n.
+- Wordmark: 14n.
+- Navigation gap: 14n.
+- Link size: 12n.
+- Hide THEME and SOUND.
+- Hide the system status if there is insufficient room.
+
+### Hero
+
+- Minimum height: 100svh.
+- Padding: 76n 18n 0.
+- Lede: 24n.
+- Mono column: 12.5n.
+- Hide second mono column.
+- Main headline: 35n.
+- Line height: 1.02.
+- Flexible spacer: at least 300n.
+
+Keep the glass word centred behind the hero composition.
+
+### Mobile HUD
+
+Do not overload mobile with desktop technical overlays.
+
+Keep only:
+
+- Wordmark.
+- One small system status.
+- A small object identifier.
+- Minimal corner brackets.
+- One compact technical label.
+
+Hide:
+
+- Footer.
+- Pointer coordinates.
+- Radar.
+- Side telemetry.
+- Dot clusters.
+- Pointer reticle.
+- Desktop tracking graphics.
+
+### About
+
+- Padding: 60n 18n 70n.
+- Portrait: 220 × 222n.
+- Portrait margin: 40n 0 0 10n.
+- Signature: 92n.
+- Statement: 29n.
+- History: 29n.
+- Line height: 1.16.
+
+Allow the text to flow naturally.
+
+The portrait frame must adapt to the smaller image dimensions.
+
+### Mobile WebGL
+
+Disable:
+
+- Pointer tracking.
+- Camera parallax.
+- Floating animation.
+- Fluid simulation.
+- Dot trail.
+
+Keep the background and scroll-driven effects.
+
+Use two refraction samples.
+
+Use the original mobile object positions and scales.
+
+---
+
+# 18. REDUCED MOTION ACCESSIBILITY
+
+Respect:
+
+`prefers-reduced-motion: reduce`
+
+When enabled:
+
+- Disable CSS transitions and animations.
+- Disable Lenis.
+- Disable entrance timelines.
+- Make all text immediately visible.
+- Remove the intro camera dolly.
+- Remove rotation damping.
+- Remove float.
+- Remove camera parallax.
+- Remove pointer fluid.
+- Remove pointer trail.
+
+Still retain:
+
+- Time-based slow background movement.
+- Scroll-linked object movement.
+- Scroll-linked object rotation.
+- Dot-dissolve transition.
+
+All important content must remain accessible.
+
+---
+
+# 19. ANIMATION TIMING AND ENTRANCE
+
+Preserve the original animation timings.
+
+### Hero entrance
+
+Wait for `document.fonts.ready`.
+
+Then:
+
+- Grid: 900 ms, 300 ms delay.
+- Navigation/footer: 900 ms, 350 ms delay.
+- Lede: 1000 ms, 500 ms delay.
+- Mono column 1: 1000 ms, 610 ms delay.
+- Mono column 2: 1000 ms, 720 ms delay.
+- Headline lines: 1200 ms, 650 / 770 / 890 ms delays.
+
+Use:
+
+`cubic-bezier(.16,1,.3,1)`
+
+### About entrance
+
+Trigger at 40% intersection.
+
+- Portrait: 1100 ms.
+- Signature: 1300 ms, 450 ms delay.
+- Signature flicker: 4200 ms.
+- Text rows: 1000 ms with 150 ms initial delay and 80 ms stagger.
+
+Preserve the original animation cleanup behaviour.
+
+### HUD animations
+
+Additional HUD animations must remain secondary:
+
+| Element | Duration |
+|---|---|
+| Status indicator pulse | 2.5 s |
+| Radar rotation | 12 s |
+| Scanning line | 8 s |
+| Coordinate indicator pulse | 3 s |
+| Corner marker glow | 4 s |
+| Scroll indicator | 1.8 s |
+
+Avoid excessive continuous animation.
+
+---
+
+# 20. FINAL COMPOSITION AND DESIGN QUALITY
+
+The final design must satisfy these visual requirements.
+
+### Hero composition
+
+- Huge glass `hello` remains the centrepiece.
+- Teal shattered background remains visible.
+- Main headline remains bold and editorial.
+- HUD elements surround the main composition.
+- Small technical details provide futuristic identity.
+- No large opaque interface panels.
+- No visual clutter.
+
+### About composition
+
+- Dark cinematic background.
+- Portrait in a holographic scanning frame.
+- Neon Mira signature.
+- Large editorial statement.
+- Subtle identity and system information.
+- Fine technical grid and corner markers.
+
+### Overall visual balance
+
+The website must look:
+
+- Premium.
+- Cinematic.
+- Futuristic.
+- Minimal.
+- Experimental.
+- Technically sophisticated.
+- Professionally art-directed.
+
+Avoid:
+
+- Generic cyberpunk aesthetics.
+- Excessive neon.
+- Purple/pink gradients.
+- Overused glowing borders.
+- Large dashboard cards.
+- Unnecessary icons.
+- Random floating numbers.
+- Excessive glitch effects.
+- Too many animations.
+- Generic AI-generated website styling.
+
+---
+
+# 21. FUNCTIONAL REQUIREMENTS
+
+Every visible interactive element must work.
+
+Required:
+
+- Smooth scrolling.
+- WORK anchor navigation.
+- CONTACT mailto link.
+- Theme toggle.
+- Sound cosmetic toggle.
+- Live clock.
+- Pointer coordinate tracking.
+- Animated globe.
+- Pointer-reactive background.
+- Glass object animation.
+- Scroll-driven dot dissolve.
+- About intersection animation.
+- Responsive mobile layout.
+- Reduced-motion handling.
+- WebGL fallback.
+
+All HUD decorations that are not interactive must be marked appropriately as decorative and excluded from accessibility navigation.
+
+Use semantic HTML.
+
+Use descriptive accessible labels.
+
+---
+
+# 22. FINAL DELIVERY REQUIREMENTS
+
+Deliver a complete, executable `index.html`.
+
+Do not deliver:
+
+- A screenshot.
+- A Figma-style mockup.
+- A static HTML shell.
+- A partial Three.js implementation.
+- A simplified gradient background.
+- Placeholder glass typography.
+- Fake interface interactions.
+
+The final code must implement the actual visual and interactive experience.
+
+### Implementation priorities
+
+1. Reproduce the original Mirasol Studio design faithfully.
+2. Implement the complete Three.js shattered-streak background.
+3. Implement the refractive glass typography and four glass objects.
+4. Implement the original fluid simulation and dot-dissolve.
+5. Add the futuristic HUD interface layer.
+6. Implement the About identity profile.
+7. Implement responsive behaviour.
+8. Optimize rendering and test fallbacks.
+
+### Final instruction
+
+Treat the original Mirasol Studio specification as the technical source of truth for all existing elements, numerical values, asset URLs, shaders, object geometry, animation timings, positioning, typography and responsive behaviour.
+
+The sci-fi HUD additions must be layered on top of that original system without breaking, replacing, simplifying or removing any of its existing features.
+
+If an added HUD element conflicts with an original element, preserve the original element and reposition or remove the added decoration.
+
+**The final experience should feel like opening a futuristic digital identity system: a beautiful, cinematic, holographic introduction to a creative engineer.**
+
+It should look less like browsing a website and more like entering a carefully designed digital world.
